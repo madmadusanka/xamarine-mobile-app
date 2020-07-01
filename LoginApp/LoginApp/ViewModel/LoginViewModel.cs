@@ -1,9 +1,5 @@
-﻿using LoginApp.Services;
-using LoginApp.views;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
-using System.Threading.Tasks;
-using System.Windows.Input;
 using Xamarin.Forms;
 
 
@@ -18,7 +14,7 @@ namespace LoginApp.ViewModel
             {"dilan","123"} };
 
         public event PropertyChangedEventHandler PropertyChanged;
-        private readonly INavigationService _navigationService;
+    
         public LoginViewModel()
         {
             LoginCommand = new Command(AuthenticateAsync);
@@ -42,7 +38,7 @@ namespace LoginApp.ViewModel
             get;
 
         }
-        
+
 
         public void AuthenticateAsync()
         {
@@ -57,7 +53,7 @@ namespace LoginApp.ViewModel
                 {
                     // Application.Current.MainPage.DisplayAlert("Login State","Succesfull Login", "OK");
                     OpenUserDetail();
-             
+
                 }
                 else Application.Current.MainPage.DisplayAlert("Save", "Wrong credentials", "OK");
             }
@@ -65,14 +61,15 @@ namespace LoginApp.ViewModel
         }
 
 
-        public void  OpenUserDetail() {
+        public void OpenUserDetail()
+        {
 
             Application.Current.MainPage.Navigation.PushAsync(new UserDetail());
 
-      
+
         }
 
     }
 
-}                     
+}
 

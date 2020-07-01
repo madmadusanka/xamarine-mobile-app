@@ -18,6 +18,9 @@ namespace LoginApp
         {
             InitializeComponent();
             BindingContext = new LoginViewModel();
+     
+
         }
+    
     }
 }

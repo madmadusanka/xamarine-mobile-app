@@ -1,9 +1,4 @@
-﻿using GalaSoft.MvvmLight.Ioc;
-using GalaSoft.MvvmLight.Views;
-using LoginApp.Services;
-using System;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+﻿using Xamarin.Forms;
 
 namespace LoginApp
 {
@@ -14,7 +9,7 @@ namespace LoginApp
         public App()
         {
             InitializeComponent();
-            MainPage = new MainPage();
+            MainPage = new UserDetail();
      
         }
 
