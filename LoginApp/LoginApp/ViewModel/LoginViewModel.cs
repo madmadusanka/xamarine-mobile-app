@@ -2,6 +2,7 @@
 using LoginApp.views;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -55,19 +56,20 @@ namespace LoginApp.ViewModel
                 if (userData[username] == password)
                 {
                     // Application.Current.MainPage.DisplayAlert("Login State","Succesfull Login", "OK");
-
+                    OpenUserDetail();
+             
                 }
                 else Application.Current.MainPage.DisplayAlert("Save", "Wrong credentials", "OK");
             }
             else Application.Current.MainPage.DisplayAlert("Login State", "Wrong credentials", "OK");
         }
 
-        public ICommand BackToPage { get; private set; }
-        public void Home()
 
-            BackToPage = new Command(async () => {
-                await Application.Current.MainPage.Navigation.PushAsync(UserDetail);
-            });
+        public void  OpenUserDetail() {
+
+            Application.Current.MainPage.Navigation.PushAsync(new UserDetail());
+
+      
         }
 
     }
