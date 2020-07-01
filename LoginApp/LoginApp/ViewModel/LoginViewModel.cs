@@ -1,9 +1,13 @@
-﻿using System;
+﻿using GalaSoft.MvvmLight.Views;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Xamarin.Forms;
+
+
 
 namespace LoginApp.ViewModel 
 {
@@ -11,12 +15,16 @@ namespace LoginApp.ViewModel
     {
         private string password;
         private string username;
+        INavigationService NavigationService;
+      
+
         private Dictionary<string, string> userData = new Dictionary<string, string>(){ 
             {"dilan","123"} };
 
         public event PropertyChangedEventHandler PropertyChanged;
 
         public LoginViewModel() {
+            NavigationService = ViewModelLocator.Resolve<INavigationService>();
             LoginCommand = new Command(Authenticate); ;
         }
         public string Username
@@ -36,10 +44,15 @@ namespace LoginApp.ViewModel
             get;
 
     }
+        public ICommand BackToPage { get;  set; }
+
         void Authenticate() {
             if(username==null || password == null)
             {
-                Application.Current.MainPage.DisplayAlert("Login State", "Wrong credentials", "OK");
+                BackToPage = new Command(async () => {
+                    Application.Current.MainPage = new UserDetail();
+                });
+                //Application.Current.MainPage.DisplayAlert("Login State", "Wrong credentials", "OK");
             }
             else if (userData.ContainsKey(username))
             {
@@ -52,7 +65,10 @@ namespace LoginApp.ViewModel
    
 
 
-        }            
+        }
+    
+
+       
     }
    
 }
