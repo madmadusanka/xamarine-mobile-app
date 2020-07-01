@@ -64,7 +64,7 @@ namespace LoginApp.ViewModel
         public void OpenUserDetail()
         {
 
-            Application.Current.MainPage.Navigation.PushAsync(new UserDetail());
+            //Application.Current.MainPage.Navigation.PushAsync(new UserDetail());
 
 
         }
