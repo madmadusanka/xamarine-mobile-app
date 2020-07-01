@@ -19,5 +19,9 @@ namespace LoginApp
             BindingContext = new UserDetailViewModel();
         }
 
+        public static implicit operator Page(UserDetail v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
