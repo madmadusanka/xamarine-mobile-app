@@ -1,60 +1,17 @@
-﻿using Autofac;
-using GalaSoft.MvvmLight.Views;
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace LoginApp.Services
 {
-    class NavigationServices : INavigationService
+    class NavigationService :INavigationService
     {
-        public string CurrentPageKey => throw new NotImplementedException();
-        public NavigationServices()
-        {
-            var builder = new ContainerBuilder();
-            builder.RegisterType<NavigationServices>().As<INavigationService>().SingleInstance();
-        }
 
 
-        public void GoBack()
+        public async Task NavigateUserDetail()
         {
-            throw new NotImplementedException();
-        }
-
-        public void NavigateTo(string pageKey)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void NavigateTo(string pageKey, object parameter)
-        {
-            throw new NotImplementedException();
+            await App.Page.Navigation.PushAsync(new UserDetail());
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

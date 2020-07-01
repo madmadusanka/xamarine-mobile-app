@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace LoginApp.ViewModel
 {
@@ -10,6 +12,7 @@ namespace LoginApp.ViewModel
         public event PropertyChangedEventHandler PropertyChanged;
         public UserDetailViewModel()
         {
+          
 
         }
     }

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using GalaSoft.MvvmLight.Ioc;
+using GalaSoft.MvvmLight.Views;
+using LoginApp.Services;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -6,11 +9,13 @@ namespace LoginApp
 {
     public partial class App : Application
     {
+
+
         public App()
         {
             InitializeComponent();
-
             MainPage = new MainPage();
+     
         }
 
         protected override void OnStart()
